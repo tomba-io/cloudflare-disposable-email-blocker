@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json.schemastore.org/install",
+  "resources": {
+    "head": [
+      {
+        "type": "script",
+        "src": "./build/index.js"
+      }
+    ]
+  },
+  "dns": [
+    {
+      "type": "TXT",
+      "content": "Managed TXT Record",
+      "name": "Disposable email blocker by tomba.io",
+      "ttl": 120
+    }
+  ],
+  "preview": {
+    "handlers": [
+      {
+        "options": ["_default"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
+  "options": {
+    "properties": {
+      "disposable_message": {
+        "title": "Disposable Error Message",
+        "description": "This message displays on the input if the email is Disposable.",
+        "type": "string",
+        "order": 1,
+        "default": "Abuses, strongly encourage you to stop using disposable email."
+      },
+      "webmail_message": {
+        "title": "Webmail Error Message",
+        "description": "This message displays on the input if the email is Webmail.",
+        "type": "string",
+        "order": 1,
+        "default": "Warning, You can create an account with this email address, but we strongly encourage you to use a professional email address."
+      },
+      "webmail_enabled": {
+        "title": "Enabled",
+        "type": "boolean",
+        "default": false,
+        "order": 0
+      }
+    },
+    "help": {
+      "type": "help",
+      "helpvalue": "<hr>Learn more about <a href='https://github.com/tomba-io/cloudflare-disposable-email-blocker'>cloudflare disposable email blocker</a> Docs."
+    }
+  }
+}
